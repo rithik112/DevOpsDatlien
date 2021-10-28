@@ -18,4 +18,5 @@ jobs:
     steps:
     - name: Pull the Code From Repo
     - uses: actions/checkout@v2
+    - name: Staus  
       run: echo Fetched the Code Successfully!
