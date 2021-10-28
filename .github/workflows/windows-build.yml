@@ -39,3 +39,22 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: |
           echo Installed NodeJS - ${{ matrix.node-version }}
+          
+  dependecies:
+    if: always()
+    needs: [code-fetch, env-setup]
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+        node-version: [ 12.x, 14.x, 16.x ]
+    name: "Installing Project Dependencies"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Using Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Installing Node Modules
+    - run: npm i
