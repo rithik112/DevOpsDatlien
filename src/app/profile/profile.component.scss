@@ -1,0 +1,51 @@
+.example-stretched-tabs {
+    max-width: 800px;
+  }
+  .card-container, .front, .back {
+    width: 18rem;
+    height: 14rem;
+  }
+  .card-container {
+    margin: 1rem;
+  }
+  .front, .back {
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 1rem 2rem rgb(92, 92, 92);
+  
+    font-family: BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: .8rem;
+    color: #fff;
+    text-transform: uppercase;
+    // text-align: center;
+  }
+  /* front side bg is green gradient */ .front {
+    background-image: linear-gradient(to right bottom, #000000, #4942425b);
+    
+  }
+  /* back side bg is orange gradient */ .back {
+    background-image: linear-gradient(to right bottom, #494242d5, #000000);
+  }
+  
+  .card-container {
+    position: relative;
+  }
+  .front, .back {
+    position: absolute;
+    top: 0;
+    left: 51px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: transform .8s ease;
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  .card-container:hover .front {
+    transform: rotateY(-180deg);
+  }
+  .card-container:hover .back {
+    transform: rotateY(0deg);
+  }
+  

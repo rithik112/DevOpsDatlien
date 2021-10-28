@@ -1,0 +1,119 @@
+<br><br>
+<div class="pxp-content">
+    <div class="pxp-contact pxp-content-wrapper mt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-7">
+                    <h1 class="pxp-page-header">Contact Us</h1>
+                    <p class="pxp-text-light">Say hello. Tell us how we can guide you.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pxp-contact-hero mt-4 mt-md-5">
+            <!-- <div class="pxp-contact-hero-fig pxp-cover" style="background-image: url(assets/images/contact-bg-2.jpg); background-position: 50% 80%;"></div> -->
+
+            <div class="pxp-contact-hero-offices-container">
+                <div class="container">
+                    <div class="pxp-contact-hero-offices">
+                        <h2 class="pxp-section-h2 text-white">Our Offices</h2>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="pxp-contact-hero-offices-title mt-3 mt-md-4">New Delhi</div>
+                                <div class="pxp-contact-hero-offices-info mt-2 mt-md-3">
+                                    <p class="pxp-is-address">90 Fifth Avenue, 3rd Floor<br>New Delhi, CA 1980</p>
+                                    <p>
+                                        <a href="#">(123) 789-7390</a><br>
+                                        <a href="#">office-de@datlien.club</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="pxp-contact-hero-offices-title mt-3 mt-md-4">Mumbai</div>
+                                <div class="pxp-contact-hero-offices-info mt-2 mt-md-3">
+                                    <p class="pxp-is-address">90 Fifth Avenue, 3rd Floor<br>Mumbai, NY 1980</p>
+                                    <p>
+                                        <a href="#">(123) 789-7390</a><br>
+                                        <a href="#">office-mu@datlien.club</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="pxp-contact-hero-offices-title mt-3 mt-md-4">Kolkata</div>
+                                <div class="pxp-contact-hero-offices-info mt-2 mt-md-3">
+                                    <p class="pxp-is-address">90 Fifth Avenue, 3rd Floor<br>Kolkata, CA 1980</p>
+                                    <p>
+                                        <a href="#">(123) 789-7390</a><br>
+                                        <a href="#">office-ko@datlien.club</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-200">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <h2 class="pxp-section-h2">Send Us A Message</h2>
+                    <div class="pxp-contact-form mt-3 mt-md-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" required  [formControl]="contactFormData.name"  class="form-control" id="pxp-contact-form-name" [readOnly]="_authService.loggedIn()" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" [formControl]="contactFormData.email" [readOnly]="_authService.loggedIn()"  id="pxp-contact-form-email" placeholder="Email">
+                                    <!-- <mat-error *ngIf="contactFormData.email.invalid">{{getErrorMessage()}}</mat-error> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <select class="custom-select" required [formControl]="contactFormData.regarding" id="pxp-contact-form-reg">
+                                        <option value="">What is this regarding?</option>
+                                        <option value="Customer support / feedback">Customer support / feedback</option>
+                                        <option value="Applying">Applying</option>
+                                        <option value="Press">Press</option>
+                                        <option value="Listings">Listings</option>
+                                        <option value="Partnerships">Partnerships</option>
+                                        <option value="General questions">General questions</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" [formControl]="contactFormData.phone" placeholder="Phone (optional)" id="pxp-contact-form-phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="pxp-contact-form-message" [formControl]="contactFormData.feedback" rows="6" placeholder="Message"></textarea>
+                        </div>
+                        <button (click)="contactform()" class="pxp-contact-form-btn">Send Message</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <div class="row mt-4 mt-md-5 mt-lg-0">
+                        <div class="col-6">
+                            <h2 class="pxp-section-h2">Our Locations</h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <select class="custom-select pxp-contact-locations-select">
+                                <option value="la">New Delhi</option>
+                                <option value="ny">Mumbai</option>
+                                <option value="sf">Kolkata</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="pxp-contact-map" class="mt-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448183.7390591985!2d76.81307423177847!3d28.646677262463925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sDelhi!5e0!3m2!1sen!2sin!4v1606383993948!5m2!1sen!2sin" width="600" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

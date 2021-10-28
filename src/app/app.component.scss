@@ -1,0 +1,73 @@
+// body{
+//     margin: 0;
+//     padding: 0;
+//     height: 100vh;
+//     overflow: hidden;
+//     font-family: 'Times New Roman', sans-serif;
+// }
+
+nav{
+    top: 5%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+a{
+    color: rgb(0, 0, 0);
+    display: block;
+    position: relative;
+    line-height: 1.25rem;
+    perspective: 12.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.9375rem 1.875rem;
+    transition: all .3s linear;
+}
+
+a:not(.active):hover .link-space{
+    transform: translateZ(-1.5625rem) rotateX(90deg);
+}
+
+.link-space{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    transition: all .3s ease-out;
+    transform-style: preserve-3d;
+}
+
+.fare{
+    transform: rotateX(0deg) translateZ(1.5625rem);
+}
+
+.back{
+    transform: rotateX(-90deg) translateZ(1.5625rem);
+}
+
+.fare, .back{
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    display: block;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    box-sizing: border-box;
+    padding: 0.9375rem 1.875rem;
+}
+
+nav li a:hover .fare,
+nav li a:hover .fare{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 217, 217);
+    background-size: 0.3125rem 0.3125rem;
+}

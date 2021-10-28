@@ -1,0 +1,169 @@
+<div class="pxp-content">
+    <div class="pxp-single-property-top pxp-content-wrapper mt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <h2 class="pxp-sp-top-title"> {{pDetails.title}} </h2>
+                    <p class="pxp-sp-top-address pxp-text-light"> {{pDetails.location}} </p>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="pxp-sp-top-btns mt-2 mt-md-0">
+                        <button (click)='savePro()' class="pxp-sp-top-btn"><span class="fa fa-star"></span> Save</button>
+                        <div class="dropdown">
+                            <a class="pxp-sp-top-btn" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="fa fa-share-alt"></span> Share
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#"><span class="fa fa-facebook"></span> Facebook</a>
+                                <a class="dropdown-item" href="#"><span class="fa fa-twitter"></span> Twitter</a>
+                                <a class="dropdown-item" href="#"><span class="fa fa-pinterest"></span> Pinterest</a>
+                                <a class="dropdown-item" href="#"><span class="fa fa-linkedin"></span> LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix d-block d-xl-none"></div>
+                    <div class="pxp-sp-top-feat mt-3 mt-md-0">
+                        <div> {{pDetails.beds}} <span>BD</span></div>
+                        <div> {{pDetails.broom}} <span>BA</span></div>
+                        <div> {{pDetails.s_feet}} <span>SF</span></div>
+                    </div>
+                    <div class="pxp-sp-top-price mt-3 mt-md-0">₹ {{pDetails.price}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pxp-single-property-gallery-container mt-4 mt-md-5">
+        <div class="pxp-single-property-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="pxp-sp-gallery-main-img">
+                <a href="assets/images/properties/prop-11-1-big.jpg" itemprop="contentUrl" data-size="1920x1280" class="pxp-cover" style="background-image: url(assets/images/properties/prop-11-1-big.jpg);"></a>
+                <figcaption itemprop="caption description">Image caption</figcaption>
+            </figure>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a href="assets/images/properties/prop-10-2-big.jpg" itemprop="contentUrl" data-size="1920x1459" class="pxp-cover" style="background-image: url(assets/images/properties/prop-10-2-gallery.jpg);"></a>
+                <figcaption itemprop="caption description">Image caption</figcaption>
+            </figure>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a href="assets/images/properties/prop-11-3-big.jpg" itemprop="contentUrl" data-size="1920x2560" class="pxp-cover" style="background-image: url(assets/images/properties/prop-11-3-gallery.jpg);"></a>
+                <figcaption itemprop="caption description">Image caption</figcaption>
+            </figure>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a href="assets/images/properties/prop-6-3-big.jpg" itemprop="contentUrl" data-size="1920x1280" class="pxp-cover" style="background-image: url(assets/images/properties/prop-6-3-gallery.jpg);"></a>
+                <figcaption itemprop="caption description">Image caption</figcaption>
+            </figure>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+                <a href="assets/images/properties/prop-10-3-big.jpg" itemprop="contentUrl" data-size="1920x1280" class="pxp-cover" style="background-image: url(assets/images/properties/prop-10-3-gallery.jpg);"></a>
+                <figcaption itemprop="caption description">Image caption</figcaption>
+            </figure>
+        </div>
+        <a class="pxp-sp-gallery-btn">View Photos</a>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="container mt-100">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="pxp-single-property-section">
+                    <h3>Key Details</h3>
+                    <div class="row mt-3 mt-md-4">
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Status</div>
+                                <div class="pxp-sp-kd-item-value"> {{pDetails.status}} </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Property Type</div>
+                                <div class="pxp-sp-kd-item-value"> {{pDetails.type}} </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Year Built</div>
+                                <div class="pxp-sp-kd-item-value">{{pDetails.yob}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Stories</div>
+                                <div class="pxp-sp-kd-item-value"> {{pDetails.stories}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Room Count</div>
+                                <div class="pxp-sp-kd-item-value"> {{pDetails.r_count}} </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="pxp-sp-key-details-item">
+                                <div class="pxp-sp-kd-item-label text-uppercase">Parking Spaces</div>
+                                <div class="pxp-sp-kd-item-value"> {{pDetails.p_space}} </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pxp-single-property-section mt-4 mt-md-5">
+                    <h3>Overview</h3>
+                    <div class="mt-3 mt-md-4">
+                        <p> {{pDetails.overview}}  </p>
+                    </div>
+                </div>
+
+                <div class="pxp-single-property-section mt-4 mt-md-5">
+                    <h3>Amenities</h3>
+                    <div class="row mt-3 mt-md-4">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-wifi"></span> Internet</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-car"></span> Garage</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-sun-o"></span> Air Conditioning</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-bullseye"></span> Dishwasher</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-recycle"></span> Disposal</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-clone"></span> Balcony</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-futbol-o"></span> Gym</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-smile-o"></span> Playroom</div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="pxp-sp-amenities-item"><span class="fa fa-glass"></span> Bar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="pxp-single-property-section pxp-sp-agent-section mt-4 mt-md-5 mt-lg-0">
+                    <h3><b>Listed By</b></h3>
+                    <div class="pxp-sp-agent mt-3 mt-md-4">
+                        <a  class="pxp-sp-agent-fig pxp-cover rounded-lg" style="background-image: url(assets/images/agent-3.jpg); background-position: top center"></a>
+                        <div class="pxp-sp-agent-info">
+                            <div class="pxp-sp-agent-info-name"><a>{{pDetails.author}}</a></div>
+                            <div class="pxp-sp-agent-info-rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="pxp-sp-agent-info-email"><a href="mailto:{{pDetails.author_mail}}">{{pDetails.author_mail}}</a></div>
+                            <div class="pxp-sp-agent-info-phone"><span class="fa fa-phone"></span> (123) 456-7890</div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="pxp-sp-agent-btns mt-3 mt-md-4">
+                            <button (click)="onConfirm()" class="pxp-sp-agent-btn-main" data-toggle="modal" data-target="#pxp-contact-agent"><span class="fa fa-envelope-o"></span> Contact Author</button>
+                            <a href="#pxp-contact-agent" class="pxp-sp-agent-btn" data-toggle="modal" data-target="#pxp-contact-agent"><span class="fa fa-calendar-check-o"></span> Request Tour</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

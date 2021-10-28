@@ -1,0 +1,172 @@
+<div class="pxp-content">
+    <div class="pxp-agents mt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-8">
+                    <h1 class="pxp-page-header float-left"><b>{{User}}</b></h1>
+                    <!-- <span class="pxp-agent-rating"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></span> -->
+                    <div class="clearfix"></div>
+                    <p *ngIf="count>=20"><span class="fa fa-star"></span><b>  Pro User</b></p>
+                    <p *ngIf="count<20"><b>Beginner</b></p>
+                    <div class="mt-4 mt-md-5">
+                        <div class="pxp-agent-email"><a href="mailto:{{email}}"><span class="fa fa-envelope-o"></span> {{email}}</a></div>
+                        <div class="pxp-agent-phone"><span class="fa fa-phone"></span> (123) 456-7890</div>
+                    </div>
+                    <div class="mt-4 mt-md-5">
+                        <button (click)="editpro()" class="pxp-agent-contact-btn" data-toggle="modal" data-target="#pxp-work-with">Edit Profile</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 offset-lg-1 col-lg-3">
+                    <div class="pxp-agent-photo pxp-cover rounded-lg mt-4 mt-md-5 mt-lg-0" style="background-image: url(assets/images/agent-3.jpg); background-position: 50% 0%;"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="pxp-agent-section mt-4 mt-md-5">
+                        <h3>About {{aname}}</h3>
+                        <div class="mt-3 mt-md-4">
+                            <p>Award winner and nominee, Erika Tillman, is one of NYC’s top producing agents. In 2016 she was a Top Producer Individual by sales volume and GCI. This high achiever received, among other recognitions, a Quadruple Platinum Award and was cover of Outfront Magazine in December 2016.</p>
+                            <p>She is known as one of the smartest and most dedicated agents in the City. She has earned an excellent reputation with high-end developers. Her clientele includes some of the wealthiest Family Offices in the world, including royalty, and she works attending each generation’s needs and risk profile. She is the perfect agent for the most demanding clients and runs her business 24/7. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 offset-lg-1">
+                    <div class="pxp-agent-section mt-4 mt-md-5">
+                        <h3><b>Details</b></h3>
+                        <ul class="list-unstyled pxp-agent-specialities mt-3 mt-md-4">
+                            <li>Saved Listings: {{length}}</li>
+                            <li>Submitted Listings: {{count}} </li>
+                        </ul>
+                    </div>
+                    <div class="pxp-agent-section mt-4 mt-md-5">
+                        <h3>Social Media</h3>
+                        <ul class="list-unstyled pxp-agent-social mt-3 mt-md-4">
+                            <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fa fa-pinterest"></span></a></li>
+                            <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <mat-tab-group mat-stretch-tabs>
+                <mat-tab label="Saved Listings">
+                    <br>
+                    <h2 *ngIf='length==0' class="pxp-section-h2 mt-100 text-center">Go to Properties page save some beautiful listings for you and Checkit Out here...!</h2>
+                    <h2 *ngIf='length>0' class="pxp-section-h2 mt-100">Saved Listings by You</h2>
+            <button *ngIf='length>0' (click)='clearSavedAll()' class="pxp-sp-top-btn"><span class="fa fa-remove"></span> Clear All</button>
+            <div class="row mt-4 mt-md-5" >
+                <div class="col-sm-12 col-md-6 col-lg-4" *ngFor= "let l of savePro">
+                    <a class="pxp-prop-card-1 rounded-lg mb-4">
+                        <div [routerLink]="['/s-property',l.propertyId]" class="pxp-prop-card-1-fig pxp-cover" style="background-image: url(assets/images/properties/prop-4-1-gallery.jpg);"></div>
+                        <div class="pxp-prop-card-1-gradient pxp-animate"></div>
+                        <div class="pxp-prop-card-1-details">
+                            <div  class="pxp-prop-card-1-details-title">{{l.title}}</div>
+                            <div class="pxp-prop-card-1-details-price">₹ {{l.price}} </div>
+                            <div class="pxp-prop-card-1-details-features text-uppercase"> {{l.beds}} BD <span>|</span> {{l.broom}} BA <span>|</span> {{l.s_feet}} SF</div>
+                        </div>
+                        <div (click)="deleteSaved(l.userid,l.propertyId)" class="pxp-prop-card-1-details-cta text-uppercase">Remove</div>
+                    </a>
+                </div>
+            </div>
+                </mat-tab>
+                <mat-tab label="Submited Listings">
+                    <br>
+                    <h2 *ngIf='count==0' class="pxp-section-h2 mt-100 text-center">Submit some beautiful listings for our đất liền family and Checkit Out here...!</h2>
+                    <h2 *ngIf='count>0' class="pxp-section-h2 mt-100">Submitted Listings by You</h2>
+                    <button *ngIf='count>0' (click)='clearSubmittedAllDISABLED()' class="pxp-sp-top-btn"><span class="fa fa-remove"></span> Clear All</button>
+                    <div class="row mt-4 mt-md-5" >
+                        <div class="col-sm-12 col-md-6 col-lg-4" *ngFor= "let l of subPro">
+                            <a class="pxp-prop-card-1 rounded-lg mb-4">
+                                <div [routerLink]="['/s-property',l._id]" class="pxp-prop-card-1-fig pxp-cover" style="background-image: url(assets/images/properties/prop-4-1-gallery.jpg);"></div>
+                                <div class="pxp-prop-card-1-gradient pxp-animate"></div>
+                                <div class="pxp-prop-card-1-details">
+                                    <div  class="pxp-prop-card-1-details-title">{{l.title}}</div>
+                                    <div class="pxp-prop-card-1-details-price">₹ {{l.price}} </div>
+                                    <div class="pxp-prop-card-1-details-features text-uppercase"> {{l.beds}} BD <span>|</span> {{l.broom}} BA <span>|</span> {{l.s_feet}} SF</div>
+                                </div>
+                                <div (click)="deleteSubmittedDISABLED(l.userid,l._id)" class="pxp-prop-card-1-details-cta text-uppercase">Remove</div>
+                            </a>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Contact's Info">
+                    <mat-tab-group mat-stretch-tabs>
+                        <mat-tab label="Contacted By You">
+                    <h2 *ngIf='byulen==0' class="pxp-section-h2 mt-100 text-center">You haven't contacted to anyone yet...!</h2>
+                            <!-- {{ byU | json }} -->
+                            <div *ngIf='byulen>0' class="text-right">    
+                                <br>
+                                <button (click)='refresh()' class=" text-right pxp-sp-top-btn"><span class="fa fa-refresh"></span></button><hr>
+                            </div>
+                                <div class="row">
+                                    <div  class="col-sm-12 col-md-3 col-xxxl-4" *ngFor= "let l of byU">
+                                        <a [routerLink]="['/s-property',l.propertyId]" class="pxp-results-card-1 rounded-lg" data-prop="1">
+                                            <div id="card-carousel-1" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active" style="background-image: url(assets/images/hero-prop-1.jpg)"></div>
+                                                </div>
+                                            </div>
+                                            <div class="pxp-results-card-1-gradient"></div>
+                                            <div class="pxp-results-card-1-details">
+                                                <div class="pxp-results-card-1-details-title">{{ l.propertyName}}</div>
+                                                <div class="pxp-results-card-1-details-price">₹ {{l.propertyPrice}}</div>
+                                                <div class="pxp-prop-card-1-details-features text-uppercase"> {{l.propertyAddr}} </div>
+                                            </div>
+                                            <div class="pxp-results-card-1-features">
+                                                <span *ngIf='l.status === "accepted" ? true : false ' class="badge badge-pill badge-success">Accepted</span>
+                                                <span *ngIf='l.status === "rejected" ? true : false ' class="badge badge-pill badge-danger">Rejected</span>
+                                                <span *ngIf='l.status === "pending" ? true : false ' class="badge badge-pill badge-warning">Pending</span><br>
+                                            </div>
+                                            <div class="pxp-prop-card-1-details-features text-uppercase"> {{l.propertyAddr}} </div>
+                                            <div class="pxp-results-card-1-save"><span class="fa fa-star-o"></span></div>
+                                        </a>
+                                    </div>
+                                    </div>
+
+
+                            
+                        </mat-tab>
+                        <mat-tab label="Contacted To You">
+                    <h2 *ngIf='toulen==0' class="pxp-section-h2 mt-100 text-center">No one have contacted to you yet...!</h2>
+                            <div *ngIf='toulen>0' class="text-right">    
+                                <br>
+                                <button (click)='refresh()' class=" text-right pxp-sp-top-btn"><span class="fa fa-refresh"></span></button>
+                            </div>
+                            <div class="row mt-4 mt-md-5" >
+                                <!-- {{ toU | json }} -->
+                                <br><br>
+                                <div class="card-container" *ngFor='let u of toU'>
+                                    <div class="row">                            
+                                        <div class="front">
+                                            Property Name: <strong>{{ u.propertyName }}</strong> <br>
+                                            Price:{{ u.propertyPrice }} <br>
+                                            Location:{{ u.propertyAddr }} <br>
+                                            Requested by: <br>
+                                            Name:{{ u.name }} <br>
+                                            Email:{{ u.email }} <br>
+                                            <h3> <hr>
+                                                <span *ngIf='u.status === "accepted" ? true : false ' class="badge badge-pill badge-success">Accepted</span>
+                                                <span *ngIf='u.status === "rejected" ? true : false ' class="badge badge-pill badge-danger">Rejected</span>
+                                                <span *ngIf='u.status === "pending" ? true : false ' class="badge badge-pill badge-warning">Pending</span>
+                                            </h3>
+                                        </div>
+                                        <div class="back">
+                                            Message by the Requested User: <br>
+                                            {{ u.message }} <br>
+                                            <a *ngIf='u.status === "pending" ? true : false ' (click)='statusAcc(u._id)' type="button"><span class="badge badge-pill badge-success">Accept</span></a>
+                                            <a *ngIf='u.status === "pending" ? true : false ' (click)='statusRej(u._id)' type="button"><span class="badge badge-pill badge-danger">Reject</span></a>
+                                            <br>
+                                           <hr> <a [routerLink]="['/s-property', u.propertyId]" type="button"><span class="badge badge-pill badge-info">View Property</span></a>
+                                        </div>                     
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                      </mat-tab-group>
+                </mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+</div>
