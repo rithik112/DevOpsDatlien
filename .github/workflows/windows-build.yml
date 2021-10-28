@@ -17,5 +17,6 @@ jobs:
     name: "Fetch the Code"
     steps:
     - uses: actions/checkout@v2
-    - name: Staus  
-      run: echo Fetched the Code Successfully!
+    - name: Staus of Aciton
+      run: |
+          echo Fetched the Code Successfully!
