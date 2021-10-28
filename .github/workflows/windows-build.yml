@@ -16,7 +16,6 @@ jobs:
         node-version: [ 12.x, 14.x, 16.x ]
     name: "Fetch the Code"
     steps:
-    - name: Pull the Code From Repo
     - uses: actions/checkout@v2
     - name: Staus  
       run: echo Fetched the Code Successfully!
