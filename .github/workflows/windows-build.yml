@@ -22,6 +22,8 @@ jobs:
           echo Fetched the Code Successfully!
           
   env-setup:
+    if: always()
+    needs: code-fetch
     runs-on: ${{ matrix.os }}
 
     strategy:
