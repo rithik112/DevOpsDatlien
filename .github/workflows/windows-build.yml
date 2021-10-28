@@ -93,3 +93,19 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i
     - run: npm run test
+
+  deploy-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ windows-latest ]
+        node-version: [ 12.x, 14.x, 16.x ]
+    name: "GH-Pages Deploy Test"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Angular Deploy gh-pages Actions
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+        base_href: /DevOpsDatlien/
+        angular_dist_build_folder: dist/datlienDevops
