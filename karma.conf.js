@@ -31,8 +31,21 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['Chrome_no_sandbox'],
+    customLaunchers: {
+      Chrome_no_sandbox: {
+        base: 'ChromeHeadless',
+        browserDisconnectTolerance: 3,
+        browserNoActivityTimeout: 300000,
+        browserDisconnectTimeout: 300000,
+        flags: [
+          '--disable-web-security',
+          '--disable-gpu',
+          '--no-sandbox'
+        ],
+      }
+    },
+    singleRun: true,
     restartOnFileChange: true
   });
 };
