@@ -83,7 +83,7 @@ jobs:
     strategy:
       matrix:
         os: [ windows-latest ]
-        node-version: [ 12.x, 14.x, 16.x ]
+        node-version: [ 12.x, 14.x ]
     name: "Testing the Code"
     steps:
     - uses: actions/checkout@v2
