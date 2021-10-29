@@ -98,7 +98,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ windows-latest ]
         node-version: [ 12.x, 14.x, 16.x ]
     name: "Netlify Deploy"
     steps:
