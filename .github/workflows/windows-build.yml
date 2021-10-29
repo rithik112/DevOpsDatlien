@@ -102,11 +102,14 @@ jobs:
         node-version: [ 12.x, 14.x, 16.x ]
     name: "GH-Pages Deploy Test"
     steps:
-    - uses: actions/checkout@v2
-    - run: npm i
-    - name: Angular Deploy gh-pages Actions
-      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
-      with:
-        github_access_token: ${{ secrets.GITHUB_TOKEN }}
-        base_href: /DevOpsDatlien/
-        angular_dist_build_folder: dist/datlienDevops
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install and build
+        run: npm install && npm run gh-build
+      
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist/datlienDevops # The folder the action should deploy.
