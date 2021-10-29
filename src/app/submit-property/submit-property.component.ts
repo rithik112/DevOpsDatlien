@@ -37,7 +37,7 @@ mapa: Mapboxgl.Map;
       }) 
     }
 // 
-    (Mapboxgl as any).accessToken = environment.mapboxKey;
+    (Mapboxgl as any).accessToken = 'pk.eyJ1Ijoicml0aGlrMTEyIiwiYSI6ImNrcTRkbGh4azAwMTQydnNkMjNyZGtubmgifQ.CgeTKWAE0aOo8x9ljYKYPA';
     this.mapa = new Mapboxgl.Map({
     container: 'pxp-submit-property-map', // container id
     style: 'mapbox://styles/mapbox/streets-v11',
