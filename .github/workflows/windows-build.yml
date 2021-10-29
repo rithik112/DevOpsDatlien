@@ -100,16 +100,10 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         node-version: [ 12.x, 14.x, 16.x ]
-    name: "GH-Pages Deploy Test"
+    name: "Netlify Deploy"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Install and build
-        run: npm install && npm run gh-build
       
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist/datlienDevops # The folder the action should deploy.
+      - name: Deploy Site
+        run: curl -X POST -d {} ${{ secrets.TRIGGER_NETLIFY_DEPLOY }}
