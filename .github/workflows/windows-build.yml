@@ -109,3 +109,15 @@ jobs:
       
       - name: Deploy Site
         run: curl -X POST -d {} ${{ secrets.TRIGGER_NETLIFY_DEPLOY }}
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: npm semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
