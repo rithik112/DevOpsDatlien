@@ -93,10 +93,25 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i
     - run: npm run test
-
-  deploy-test:
+    
+  release:
     if: always()
     needs: [code-fetch, env-setup, dependecies, build, test]
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - run: npm i
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+  deploy:
+    if: always()
+    needs: [code-fetch, env-setup, dependecies, build, test, release]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -109,16 +124,3 @@ jobs:
       
       - name: Deploy Site
         run: curl -X POST -d {} ${{ secrets.TRIGGER_NETLIFY_DEPLOY }}
-
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "14.x"
-      - run: npm i
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
