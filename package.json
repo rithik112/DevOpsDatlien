@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~11.0.1",
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
+    "@datadog/browser-rum": "^3.6.12",
     "@types/googlemaps": "^3.39.13",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
