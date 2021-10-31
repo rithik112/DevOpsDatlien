@@ -1,10 +1,60 @@
-<h3 class="modal-title text-right" (click)="close()" id="pxpSignupModal"> <strong>Close</strong> </h3>
-<div fxLayout="row" fxLayoutAlign="center" class="login-card">
-    <!-- <mat-card class="example-card"> -->
-        <!-- <mat-toolbar class="title">
-            Profile Details
-        </mat-toolbar> -->
-        <div fxLayout="column">
+<div class="modal-body">
+    <h3 class="modal-title text-right" (click)="close()" id="pxpSignupModal"> <strong>Close</strong> </h3>
+    <h1 class="modal-title" id="pxpSignupModal"><strong><b>Edit Profile Details</b></strong></h1>
+    <form class="mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="pxp-signup-firstname">Name</label>
+                    <input type="text" class="form-control" [formControl]="formData.name" id="pxp-signup-firstname" name="name" value="" placeholder="Enter full name">
+                    <p style="font-size: x-small;">
+                        <mat-error *ngIf="formData.name.invalid">{{nameError()}}</mat-error>
+                    </p>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="pxp-signup-email">Email</label>
+                    <input type="text" name="email" class="form-control" [formControl]="formData.email"  id="pxp-signup-email" value="" placeholder="Enter your email address">
+                    <p style="font-size: x-small;">
+                        <mat-error *ngIf="formData.email.invalid">{{emailError()}}</mat-error>
+                    </p>
+                </div>
+            </div>
+        </div><div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="pxp-signup-lastname">Username</label>
+                    <input type="text" class="form-control" [formControl]="formData.username" id="pxp-signup-lastname" name="username" value="" disabled placeholder="Enter your Username">
+                    <p style="font-size: x-small;">
+                        <mat-error *ngIf="formData.username.invalid">{{usernameError()}}</mat-error>
+                    </p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="pxp-signup-lastname">Gender </label>
+                    <select name="gender" class="custom-select" [formControl]="formData.gender" id="pxp-submit-property-type">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button (click)="onSubmit()" [disabled]="formData.name.invalid || formData.email.invalid || formData.username.invalid" class="pxp-agent-contact-modal-btn">Submit</button>
+        </div>
+    </form>
+    <br>
+</div>
+
+
+
+<!-- <h3 class="modal-title text-right" (click)="close()" id="pxpSignupModal"> <strong>Close</strong> </h3> -->
+<!-- <div fxLayout="row" fxLayoutAlign="center" class="login-card"> -->
+        <!-- <div fxLayout="column">
             <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="5px">
                 <mat-form-field class="example">
                     <mat-label>Name</mat-label>
@@ -25,66 +75,7 @@
                     <mat-error *ngIf="formData.username.invalid">{{usernameError()}}</mat-error>
                 </mat-form-field>
             </div>
-            <!-- <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
-                <mat-form-field class="example">
-                    <mat-label>Address</mat-label>
-                    <mat-icon matSuffix>
-                        <i class="fas fa-address-card"></i>
-                    </mat-icon>
-                    <input matInput type="text" [formControl]="formData.address" placeholder="Address">
-                </mat-form-field>
-            </div> -->
-            <!-- <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
-                <div>
-                    <mat-form-field class="example">
-                        <mat-label>City</mat-label>
-                        <mat-icon matSuffix>
-                            <i class="fas fa-city"></i>
-                        </mat-icon>
-                        <input matInput type="text" [formControl]="formData.city" placeholder="City">
-                        <mat-error *ngIf="formData.city.invalid">{{cityError()}}</mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field class="example">
-                        <mat-label>State</mat-label>
-                        <mat-icon matSuffix>
-                            <i class="fas fa-city"></i>
-                        </mat-icon>
-                        <input matInput type="text" [formControl]="formData.state" placeholder="State">
-                        <mat-error *ngIf="formData.state.invalid">{{stateError()}}</mat-error>
-                    </mat-form-field>
-                </div>
-            </div> -->
-            <!-- <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
-                <div>
-                    <mat-form-field class="example">
-                        <mat-label>Pincode</mat-label>
-                        <mat-icon matSuffix>
-                            <i class="fas fa-map-pin"></i>
-                        </mat-icon>
-                        <input matInput type="text" [formControl]="formData.pincode" placeholder="Pincode">
-                        <mat-error *ngIf="formData.pincode.invalid">{{pincodeError()}}</mat-error>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field class="example">
-                        <mat-label>Date of Birth</mat-label>
-                        <input matInput type="date" [formControl]="formData.dob" placeholder="DateOfBirth">
-                    </mat-form-field>
-                </div>
-            </div> -->
             <div fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap.gt-sm="20px">
-                <!-- <div>
-                    <mat-form-field class="example">
-                        <mat-label>Phone</mat-label>
-                        <mat-icon matSuffix>
-                            <span class="material-icons">phone</span>
-                        </mat-icon>
-                        <input matInput type="text" [formControl]="formData.phone" placeholder="PhoneNo">
-<mat-error *ngIf="formData.phone.invalid">{{phoneError()}}</mat-error>
-                    </mat-form-field>
-                </div> -->
                 <div>
                     <mat-form-field class="example">
                         <mat-label>Email</mat-label>
@@ -107,19 +98,9 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <!-- <div>
-                    <mat-form-field class="example">
-                        <mat-label>About Me</mat-label>
-                        <mat-icon matSuffix>
-                        <span class="material-icons">feedback</span>
-                        </mat-icon>
-                        <textarea matInput type="text" [formControl]="formData.aboutme" placeholder="About Me"></textarea>
-                    </mat-form-field>
-                </div> -->
             </div>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="center">
+          </div> -->
+          <!-- <div fxLayout="row" fxLayoutAlign="center">
             <button mat-raised-button (click)="onSubmit()" [disabled]="formData.name.invalid || formData.email.invalid || formData.username.invalid" class="example-button">Submit</button>
           </div>
-    <!-- </mat-card> -->
-</div>
+</div> -->
