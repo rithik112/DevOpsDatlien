@@ -23,6 +23,7 @@ export class ProfileComponent {
   User
   aname
   email
+  gender
   savePro = []
   subPro = []
 
@@ -48,6 +49,12 @@ toulen
           })
           this._authService.getUserName(this.UserId).subscribe((name)=>{
             this.User=name;
+          })
+          this._authService.getGender(this.UserId).subscribe((gender)=>{
+            this.gender=gender;
+            if(this.gender == 'Male')
+              this.gender = true;
+            else this.gender = false
           })
           this._authService.getName(this.UserId).subscribe((name)=>{
             this.aname=name;

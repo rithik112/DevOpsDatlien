@@ -25,7 +25,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="pxp-signup-lastname">Username</label>
-                    <input type="text" class="form-control" [formControl]="formData.username" id="pxp-signup-lastname" name="username" value="" disabled placeholder="Enter your Username">
+                    <input type="text" class="form-control" [formControl]="formData.username" id="pxp-signup-lastname" name="username" value="" placeholder="Enter your Username">
                     <p style="font-size: x-small;">
                         <mat-error *ngIf="formData.username.invalid">{{usernameError()}}</mat-error>
                     </p>

@@ -28,7 +28,7 @@ export class EditProfileComponent implements OnInit {
     email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     gender: new FormControl({value:'', disabled:true}),
     // aboutme: new FormControl(''),
-    username: new FormControl('',[Validators.required,Validators.minLength(2)])
+    username: new FormControl({value:'', disabled:true})
   }
 
   nameError() {

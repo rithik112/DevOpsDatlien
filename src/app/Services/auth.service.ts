@@ -61,6 +61,10 @@ export class AuthService {
       return this.http.get(`https://h-server.herokuapp.com/api/profile/${id}`)
     }
 
+    getGender(id){
+      return this.http.get(`https://h-server.herokuapp.com/api/gender/${id}`)
+    }
+
     editProfile(id,user){
       return this.http.patch(`https://h-server.herokuapp.com/api/edit-profile/${id}`,user);
     }
